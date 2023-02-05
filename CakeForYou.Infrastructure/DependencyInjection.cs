@@ -6,6 +6,7 @@ using CakeForYou.Infrastructure.Authentication;
 using CakeForYou.Infrastructure.Persistence;
 using CakeForYou.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
@@ -29,7 +30,12 @@ namespace CakeForYou.Infrastructure
 
         private static IServiceCollection AddPersistence(this IServiceCollection services)
         {
+            services.AddDbContext<CfyDbContext>(options =>
+                options.UseSqlServer(
+                    "Server=DESKTOP-FQ90AIT\\MSSQLSERVERCFY;Database=CakeForYou;User Id=SA;Password=CakeForYou2018!!;TrustServerCertificate=True;"));
+            
             services.AddScoped<IUserRepository, UserRepository>();
+            // services.AddScoped<ICakeRepository, CakeRepository>();
 
             return services;
         }
