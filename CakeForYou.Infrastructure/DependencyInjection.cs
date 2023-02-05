@@ -23,7 +23,7 @@ namespace CakeForYou.Infrastructure
             services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
 
             AddPersistence(services);
-
+    
             return services;
         }
 

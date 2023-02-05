@@ -12,3 +12,11 @@ code {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+
+a:hover {
+  color: #8c686c;
+  text-decoration: none;
+  background-color: none;
+}
+
+/* TODO fontFamily for all */
